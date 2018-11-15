@@ -46,7 +46,8 @@ def generate_data_set(args):
         args.nf = 1
 
     for i in range(int(args.nf)):
-        args.o = path / (filename + str(i) + ".dzn")
+        args.o = path / (filename + "_t"+str(args.t) + "_k" + str(args.k) + "_n"+str(args.n) + "_m"+str(args.m)
+                         + "_c"+str(args.c) + "_"+str(i) + ".dzn")
         create_dnz_file(args)
 
 
