@@ -28,7 +28,7 @@ Optional:
 def generate_data_set(args):
     """
     Generates the .dnz data files
-    :param args: given at the script execution [t, k, n, m, c,, b, o , p , n]
+    :param args: given at the script execution [t, k, n, m, c, b, o , p , n]
     :return: .dnz data set files
     """
     if args.o is None:
@@ -41,12 +41,12 @@ def generate_data_set(args):
     if args.p is None:
         path = Path("")
     else:
-        path =Path("source_data/text_files/")
+        path = Path(args.p)
     if args.nf is None:
         args.nf = 1
 
     for i in range(int(args.nf)):
-        args.o = path / (filename + str(i) + ".dnz")
+        args.o = path / (filename + str(i) + ".dzn")
         create_dnz_file(args)
 
 
@@ -61,6 +61,7 @@ def create_dnz_file(args):
 
     file.write("% ----DATA VARIABLES----\n\n")
     file.write("t=" + str(args.t) + ";" + "%number of attributes\n")
+    file.write("k=" + str(args.k) + ";" + "%max length of the support set\n")
     file.write("n=" + str(args.n) + ";" + "%number of positive instances\n")
     file.write("m=" + str(args.m) + ";" + "%number of negative instances\n")
     file.write("c=" + str(args.c) + ";" + "%number of atMostOne Constraints\n\n")
@@ -225,3 +226,12 @@ def get_arguments():
     parser.add_argument("-nf", help="Number of test files", type=int)
 
     return parser.parse_args()
+
+
+def main():
+    args = get_arguments()
+    generate_data_set(args)
+
+
+if __name__ == '__main__':
+    main()
