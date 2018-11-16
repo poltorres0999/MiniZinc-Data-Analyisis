@@ -17,7 +17,7 @@ array[oplength, nliterals] of int: omegap;
                                           
 array[onlength, nliterals] of int: omegan;
 
-% Support set
+
 array[nliterals, slength] of var bool: S;
                                         
 array[nliterals] of var bool: St;
@@ -34,7 +34,7 @@ constraint forall(i in nliterals) (St[i]<-> exists(j in slength)(S[i,j]));
 constraint forall(i in oplength, j in onlength)(exists(k in nliterals)(not((omegap[i,k] = 1 /\ omegan[j,k]=1) \/ (omegan[j,k] = 0 /\ omegap[i,k]=0)) /\ St[k]));
 
 %atMostOneConstrain
-constraint forall(r in atmconstraints) (sum(j in atMostOne[r], i in slength) (S[j,i]) <= 1);
+constraint forall(r in atmconstraints) (sum(j in atMostOne[r]) (St[j]) <= 1);
 
 solve satisfy;
 
