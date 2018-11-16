@@ -202,7 +202,8 @@ def omega_to_mz(omega):
     for line in omega:
         omega_mz += str(line) + "\n"
     omega_mz = omega_mz.replace('[', " ")
-    omega_mz = "[|" + omega_mz.replace(']', '|') + "];"
+    omega_mz = "[|" + omega_mz.replace(']', '|')
+    omega_mz = omega_mz[:-1] + "];"
     return omega_mz
 
 
