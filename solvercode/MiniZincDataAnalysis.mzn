@@ -31,7 +31,7 @@ constraint forall(j in slength) (sum(i in nliterals)(S[i,j]) <= 1);
 constraint forall(i in nliterals) (St[i]<-> exists(j in slength)(S[i,j]));
 
 %S must be a support set for omegap and omegan
-constraint forall(i in oplength, j in onlength)(exists(k in nliterals)(not((omegap[i,k] - omegan[j,k]==0) \/ (omegan[j,k] - omegap[i,k]==0)) /\ St[k]));
+constraint forall(i in oplength, j in onlength)(exists(k in nliterals)(not((omegap[i,k] = 1 /\ omegan[j,k]=1) \/ (omegan[j,k] = 0 /\ omegap[i,k]=0)) /\ St[k]));
 
 %atMostOneConstrain
 constraint forall(r in atmconstraints) (sum(j in atMostOne[r], i in slength) (S[j,i]) <= 1);
