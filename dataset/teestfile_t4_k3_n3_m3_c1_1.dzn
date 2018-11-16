@@ -8,14 +8,14 @@ c=1;%number of atMostOne Constraints
 
 % ----OMEGAS----
 
-omegap= [| 0, 1, 1, 0|
- 1, 1, 1, 1|
- 0, 0, 0, 1|];
+omegap= [| 1, 0, 1, 0|
+ 1, 0, 1, 0|
+ 1, 1, 1, 1|];
 
-omegan= [| 1, 0, 0, 0|
- 1, 0, 0, 0|
+omegan= [| 0, 0, 1, 0|
+ 0, 1, 0, 0|
  0, 0, 1, 0|];
 
 % ----CONSTRAINS----
 
-atMostOne=[{2}];
+atMostOne=[{3}];
