@@ -1,0 +1,29 @@
+% ----DATA VARIABLES----
+
+t=6;%number of attributes
+k=4;%max length of the support set
+n=7;%number of positive instances
+m=7;%number of negative instances
+c=2;%number of atMostOne Constraints
+
+% ----OMEGAS----
+
+omegap= [| 0, 0, 1, 1, 1, 0|
+ 0, 1, 1, 1, 1, 0|
+ 1, 0, 1, 0, 0, 0|
+ 0, 0, 1, 0, 0, 1|
+ 0, 0, 0, 0, 0, 1|
+ 0, 1, 1, 1, 0, 0|
+ 0, 0, 0, 1, 1, 0|];
+
+omegan= [| 0, 0, 1, 0, 1, 1|
+ 1, 1, 1, 1, 0, 0|
+ 1, 0, 1, 1, 0, 0|
+ 1, 1, 0, 1, 1, 1|
+ 0, 1, 0, 0, 0, 1|
+ 0, 0, 0, 1, 0, 1|
+ 1, 0, 0, 1, 0, 0|];
+
+% ----CONSTRAINS----
+
+atMostOne=[{1}, {4, 2}];
